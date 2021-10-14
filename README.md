@@ -14,6 +14,8 @@ https://docs.google.com/document/d/1I-gjR3WV-8_1gmvqBqId-87ea66XdRQC2WG-SMUJ6ZA/
 
 **Calendar**
 
+https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+
 **Product Backlog**
 https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-CC0/edit?usp=sharing
 
