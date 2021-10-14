@@ -1,4 +1,4 @@
-# cs389f2021team8
+# Fall 2021 CS 389 Team 8 Project
 
 **App name**
 
