@@ -5,6 +5,8 @@
 **Team** 
 Benjamin Fein, Jonathan Sánchez, Yi Liu
 
+![Team 8 Group Picture](./team8picture.png)
+
 **App description**
 
 **Idea Proposal**
