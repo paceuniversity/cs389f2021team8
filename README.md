@@ -16,7 +16,12 @@ https://docs.google.com/document/d/1I-gjR3WV-8_1gmvqBqId-87ea66XdRQC2WG-SMUJ6ZA/
 
 https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
 
+**Discovery**
+
+https://docs.google.com/document/d/1NevII8yfhaMG73RqamSwlt86ltirYKhb_Ih71K-m-lM/edit?usp=sharing
+
 **Product Backlog**
+
 https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-CC0/edit?usp=sharing
 
 **Architecture & Design**
