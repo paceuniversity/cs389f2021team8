@@ -57,4 +57,12 @@ https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-
 
 **Communications**
 
+[Discord](https://discord.com)
+
 **Tools**
+
+[Android Studio](https://developer.android.com/studio)
+
+[Firebase](https://firebase.google.com)
+
+[Java JDK](https://www.java.com/en/)
