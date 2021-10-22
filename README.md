@@ -9,20 +9,13 @@ Benjamin Fein, Jonathan Sánchez, Yi Liu
 
 **App description**
 
-**Idea Proposal**
-https://docs.google.com/document/d/1I-gjR3WV-8_1gmvqBqId-87ea66XdRQC2WG-SMUJ6ZA/edit?usp=sharing
+[Idea Proposal](https://docs.google.com/document/d/1I-gjR3WV-8_1gmvqBqId-87ea66XdRQC2WG-SMUJ6ZA/edit?usp=sharing)
 
-**Calendar**
+[Calendar](https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
 
-https://calendar.google.com/calendar/u/0?cid=aXZoMmU3NjhzMjRkdGlxZWYwcXZvbzhxcjBAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ
+[Requirements Discovery](https://docs.google.com/document/d/1NevII8yfhaMG73RqamSwlt86ltirYKhb_Ih71K-m-lM/edit?usp=sharing)
 
-**Discovery**
-
-https://docs.google.com/document/d/1NevII8yfhaMG73RqamSwlt86ltirYKhb_Ih71K-m-lM/edit?usp=sharing
-
-**Product Backlog**
-
-https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-CC0/edit?usp=sharing
+[Product Backlog](https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-CC0/edit?usp=sharing)
 
 **Architecture & Design**
 
