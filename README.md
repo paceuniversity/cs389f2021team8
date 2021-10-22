@@ -59,3 +59,5 @@ Benjamin Fein, Jonathan Sánchez, Yi Liu
 [Firebase](https://firebase.google.com)
 
 [Java JDK](https://www.java.com/en/)
+
+[Sublime Text](https://www.sublimetext.com)
