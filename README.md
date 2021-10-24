@@ -17,7 +17,7 @@
 
 [Product Backlog](https://docs.google.com/spreadsheets/d/1MFUP4TBV5JwOOgS4QuzjCVLCBh05hf9BYoA37X1-CC0/edit?usp=sharing)
 
-**Architecture & Design**
+[Architecture & Design](https://docs.google.com/document/d/1i2P2LnL2z2kavDDFKUbuGg2AqfAyUeBr-JljMAaJ9u8/edit?usp=sharing)
 
 **Content**
 
