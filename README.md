@@ -23,7 +23,7 @@
 
 **Sprint 1**
 
-* Sprint planning
+[Sprint planning](https://docs.google.com/document/d/1TN4bljz4dtk4r5NhxUMJri0XneNecctzZrO5LAMtcd0/edit?usp=sharing)
 * Scrums
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
