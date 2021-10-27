@@ -1,6 +1,6 @@
 # Fall 2021 CS 389 Team 8 Project
 
-**App name**
+**My Teacher**
 
 **Team** 
 [Benjamin Fein](https://github.com/benfein), [Jonathan Sánchez](https://github.com/Aviel32), [Yi Liu](https://github.com/yl58558p)
