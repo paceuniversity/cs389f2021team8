@@ -3,7 +3,7 @@
 **My Teacher**
 
 **Team** 
-[Benjamin Fein](https://github.com/benfein), [Jonathan Sánchez](https://github.com/Aviel32), [Yi Liu](https://github.com/yl58558p)
+[Benjamin Fein](https://github.com/benfein), [Jhonathan Sánchez](https://github.com/Aviel32), [Yi Liu](https://github.com/yl58558p)
 
 ![Team 8 Group Picture](./team8picture.png)
 
