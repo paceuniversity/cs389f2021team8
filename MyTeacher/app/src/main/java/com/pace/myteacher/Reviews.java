@@ -10,6 +10,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -19,6 +20,7 @@ import com.google.firebase.firestore.PropertyName;
 import com.google.firebase.firestore.QuerySnapshot;
 
 
+import java.sql.Time;
 import java.util.List;
 
 public class Reviews {
@@ -27,12 +29,21 @@ public class Reviews {
     private String teacherId;
     private String reviewer;
     private String review;
+    private Timestamp publishTime;
+
     private int id;
 
     public Reviews() {
 
     }
-
+    @PropertyName("publishTime")
+    public Timestamp getPublishTime() {
+        return publishTime;
+    }
+    @PropertyName("publishTime")
+    public void setPublishTime(Timestamp publishTime) {
+        this.publishTime = publishTime;
+    }
     @PropertyName("rating")
     public String getRating() {
         return rating;

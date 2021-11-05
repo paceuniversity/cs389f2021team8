@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -25,6 +26,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Type;
+import java.sql.Time;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class TeacherView extends AppCompatActivity  {
     String avgRating = "";
@@ -51,44 +55,45 @@ public class TeacherView extends AppCompatActivity  {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             double total = 0.00;
-
+                            Calendar date = Calendar.getInstance(TimeZone.getTimeZone("UTC-4"));
                             for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                try{
+                                if (document.toObject(Reviews.class).getPublishTime().compareTo(new Timestamp(date.getTime())) <= 0) {
+                                    try {
                                         total += Double.parseDouble(document.toObject(Reviews.class).getRating());
-                                } catch(Exception e){
-                                    total += 0;
+                                    } catch (Exception e) {
+                                        total += 0;
+                                    }
+
+                                    System.out.println(document.getId() + " => " + document.getData());
+                                    TableRow tr = new TableRow(getApplicationContext());
+                                    LinearLayout lay = new LinearLayout(getApplicationContext());
+                                    lay.setOrientation(1);
+                                    TextView b = new TextView(getApplicationContext());
+                                    b.setText(document.toObject(Reviews.class).getReviewer());
+                                    b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
+                                    TextView d = new TextView(getApplicationContext());
+                                    d.setText(document.toObject(Reviews.class).getRating());
+                                    d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
+                                    lay.addView(b);
+                                    lay.addView(d);
+                                    lay.setPadding(20, 0, 0, 0);
+
+                                    tr.addView(lay);
+                                    TextView c = new TextView(getApplicationContext());
+                                    c.setText(document.toObject(Reviews.class).getReview());
+                                    c.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
+                                    c.setPadding(50, 0, 20, 0);
+                                    tr.addView(c);
+                                    TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
+
+                                    tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+                                    tl.requestLayout();
                                 }
-
-                                System.out.println(document.getId() + " => " + document.getData());
-                                TableRow tr = new TableRow(getApplicationContext());
-                                LinearLayout lay = new LinearLayout(getApplicationContext());
-                                lay.setOrientation(1);
-                                TextView b = new TextView(getApplicationContext());
-                                b.setText(document.toObject(Reviews.class).getReviewer());
-                                b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1.0f));
-                                TextView d = new TextView(getApplicationContext());
-                                d.setText(document.toObject(Reviews.class).getRating());
-                                d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1.0f));
-                               lay.addView(b);
-                                lay.addView(d);
-                                lay.setPadding(20,0,0,0);
-
-                                tr.addView(lay);
-                                TextView c = new TextView(getApplicationContext());
-                                c.setText(document.toObject(Reviews.class).getReview());
-                                c.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1.0f));
-                                c.setPadding(50,0,20,0);
-                                tr.addView(c);
-                                TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
-
-                                tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-                                tl.requestLayout();
+                                total = total / task.getResult().size();
+                                avgRating = String.valueOf(total);
+                                TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
+                                ratingLabel.setText(avgRating);
                             }
-                            total = total / task.getResult().size();
-                            avgRating = String.valueOf(total);
-                            TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
-                            ratingLabel.setText(avgRating);
                         } else {
                             System.out.println("Error getting documents: "+ task.getException());
                         }
