@@ -24,7 +24,7 @@
 **Sprint 1**
 
 [Sprint planning](https://docs.google.com/document/d/1TN4bljz4dtk4r5NhxUMJri0XneNecctzZrO5LAMtcd0/edit?usp=sharing)
-* Scrums [Scrum 11/01/2021](./scrum-11-01-2021.md)
+* Scrums [Scrum 11/01/2021](./scrum-11-01-2021.md), Scrum 11/03/2021 No Meeting, [Scrum 11/08/2021](./scrum-11-08-2021.md)
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
 
