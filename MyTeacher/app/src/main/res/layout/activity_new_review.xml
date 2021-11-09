@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="1"
+    android:rowCount="4"
+    android:orientation="vertical"
     tools:context=".NewReview">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="167dp"
+        android:layout_width="297dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="167dp"
         android:text="New Review"
@@ -20,10 +23,12 @@
 
     <EditText
         android:id="@+id/ratingEntry"
-        android:layout_width="355dp"
+        android:layout_width="310dp"
         android:layout_height="52dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginStart="50dp"
+
         android:ems="10"
         android:hint="Rating"
         android:inputType="numberDecimal"
@@ -34,11 +39,12 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
-        android:layout_width="361dp"
+        android:layout_width="310dp"
         android:layout_height="170dp"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="50dp"
+        android:layout_weight = "0.7"
         android:layout_marginEnd="101dp"
-        android:layout_marginBottom="408dp"
+        android:layout_marginBottom="50dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Review"
@@ -55,8 +61,9 @@
         android:layout_marginStart="138dp"
         android:layout_marginEnd="138dp"
         android:text="Post Review"
+        android:layout_weight = ".8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</GridLayout>
