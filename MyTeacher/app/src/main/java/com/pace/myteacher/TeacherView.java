@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
@@ -95,7 +96,7 @@ public class TeacherView extends AppCompatActivity  {
                                 ratingLabel.setText(avgRating);
                             }
                         } else {
-                            System.out.println("Error getting documents: "+ task.getException());
+                            System.out.println("Error getting documents: " + task.getException());
                         }
 
 
@@ -104,8 +105,11 @@ public class TeacherView extends AppCompatActivity  {
         Intent intentNewReview = new Intent(TeacherView.this, NewReview.class);
         Bundle b = new Bundle();
 
-        b.putString("teacherId",getIntent().getStringExtra("teacherUserID") );
+        b.putString("teacherId", getIntent().getStringExtra("teacherUserID"));
+        b.putString("teacherEmail", getIntent().getStringExtra("teacherEmail"));
+
         intentNewReview.putExtras(b);
+
         FloatingActionButton newBtn = (FloatingActionButton) findViewById(R.id.newReviewBtn);
         newBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,8 +118,19 @@ public class TeacherView extends AppCompatActivity  {
                 startActivity(intentNewReview);
             }
         });
-    }
-    public void goToTeacher(){
+        Button sendEmailBtn = (Button) findViewById(R.id.emailTeacher);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:")); // only email apps should handle this
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[] {getIntent().getStringExtra("teacherEmail")});
+        System.out.println(getIntent().getStringExtra("teacherEmail"));
+        sendEmailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    startActivity(intent);
+
+            }
+        });
 
     }
 }
