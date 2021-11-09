@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "113679068320",
+    "project_id": "my-teacher-d2a43",
+    "storage_bucket": "my-teacher-d2a43.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113679068320:android:93735c080ddc73579cadc5",
+        "android_client_info": {
+          "package_name": "com.pace.myteacher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113679068320-2h7abbj70ornin9506emjqgkulsp31t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdiaGtFDV6QQyRg7ifXZPKMm3-cuWnB94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113679068320-2h7abbj70ornin9506emjqgkulsp31t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

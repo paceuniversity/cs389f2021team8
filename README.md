@@ -1,6 +1,6 @@
 # Fall 2021 CS 389 Team 8 Project
 
-**App name**
+**My Teacher**
 
 **Team** 
 [Benjamin Fein](https://github.com/benfein), [Jonathan Sánchez](https://github.com/Aviel32), [Yi Liu](https://github.com/yl58558p)
@@ -23,8 +23,8 @@
 
 **Sprint 1**
 
-* Sprint planning
-* Scrums
+[Sprint planning](https://docs.google.com/document/d/1TN4bljz4dtk4r5NhxUMJri0XneNecctzZrO5LAMtcd0/edit?usp=sharing)
+* Scrums [Scrum 11/01/2021](./scrum-11-01-2021.md)
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
 
