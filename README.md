@@ -30,7 +30,7 @@
 
 **Sprint 2**
 
-* Sprint planning
+* [Sprint planning](./sprint2planning.md)
 * Scrums
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
