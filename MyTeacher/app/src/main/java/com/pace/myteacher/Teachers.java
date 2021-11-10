@@ -26,6 +26,8 @@ public class Teachers {
     private String teacherName;
     private String teacherUserID;
     private String teacherRating;
+    private String teacherEmail;
+
     private String id;
 
     public Teachers() {
@@ -56,7 +58,14 @@ public class Teachers {
     public void setTeacherRating(String teacherRating) {
         this.teacherRating = teacherRating;
     }
-
+    @PropertyName("teacherEmail")
+    public String getTeacherEmail() {
+        return teacherEmail;
+    }
+    @PropertyName("teacherEmail")
+    public void setEmail(String teacherEmail) {
+        this.teacherEmail = teacherEmail;
+    }
     @PropertyName("id")
     public String getId() {
         return id;

@@ -59,6 +59,8 @@ public class Home extends AppCompatActivity  {
                                 bundle.putString("teacherUserID", document.toObject(Teachers.class).getTeacherUserID());
                                 bundle.putString("teacherName", document.toObject(Teachers.class).getTeacherName());
                                 bundle.putString("rating", document.toObject(Teachers.class).getTeacherRating());
+                                bundle.putString("teacherEmail", document.toObject(Teachers.class).getTeacherEmail());
+
                                 intentMain.putExtras(bundle);
                                 t = document.toObject(Teachers.class);
                                 b.setOnClickListener(new View.OnClickListener() {
