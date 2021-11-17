@@ -31,7 +31,7 @@
 **Sprint 2**
 
 * [Sprint planning](./sprint2planning.md)
-* Scrums
+* Scrums [Scrum 11/15/2021](./scrum-11-15-2021.md)
 * Sprint demo - video and apk (or equivalent)
 * Spring retrospective
 
