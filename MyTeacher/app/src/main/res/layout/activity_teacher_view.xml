@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="20dp"
     tools:context=".MainActivity">
 
     <Button
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/logout_eng"
+        android:fontFamily="serif"
         app:layout_constraintBottom_toTopOf="@+id/emailTeacher"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
         android:text="Email Teacher"
+        android:fontFamily="serif"
         app:layout_constraintBottom_toTopOf="@+id/welcomeString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
