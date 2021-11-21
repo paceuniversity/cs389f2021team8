@@ -1,89 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/teacherViewName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/logout_eng"
-        android:fontFamily="serif"
-        app:layout_constraintBottom_toTopOf="@+id/emailTeacher"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fontFamily="serif"/>
 
     <Button
         android:id="@+id/emailTeacher"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
+        android:layout_below="@+id/teacherViewName"
         android:text="Email Teacher"
-        android:fontFamily="serif"
-        app:layout_constraintBottom_toTopOf="@+id/welcomeString"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/teacherViewName" />
+        android:fontFamily="serif"/>
 
     <TextView
         android:id="@+id/welcomeString"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="9dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailTeacher"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif-black"
+        android:paddingRight="30dp"
         android:text="TextView"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTeacher" />
+        android:textAlignment="viewEnd"
+        android:textSize="14sp" />
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="405dp"
-        android:layout_height="599dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="16dp"
-        android:layout_weight="1"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeString">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/welcomeString"
+        android:scrollbars="none">
 
-
-        <TableLayout
-            android:id="@+id/teacherTable"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="738dp">
+            android:layout_height="wrap_content">
 
-            <TableRow
-                android:id="@+id/teacherRow"
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/titleItem"
+                android:weightSum="6"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <TextView
+                    android:id="@+id/itemReviewerT"
+                    android:text="Reviewer"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/itemRatingT"
+                    android:text="Rating"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/itemReviewT"
+                    android:text="Review"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <TableRow
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reviewsRecyclerView"
+                android:layout_below="@+id/titleItem"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
+                android:layout_height="match_parent">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </RelativeLayout>
+
+
 
     </ScrollView>
 
@@ -94,8 +102,7 @@
         android:layout_gravity="bottom|right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:src="@drawable/ic_new_review"
-        app:layout_anchorGravity="bottom|right|end"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_new_review"/>
+</RelativeLayout>

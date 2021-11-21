@@ -2,11 +2,14 @@ package com.pace.myteacher;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -28,11 +31,19 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Type;
 import java.sql.Time;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.TimeZone;
 
 public class TeacherView extends AppCompatActivity  {
+    private static final String TAG = "TeacherView";
     String avgRating = "";
+    private RecyclerView reviewsRecyclerView;
+    private ReviewItemAdapter adapter;
+    private List<ReviewItem> reviewItemList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,7 +57,12 @@ public class TeacherView extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        TableLayout tl = (TableLayout) findViewById(R.id.teacherTable);
+        reviewsRecyclerView = findViewById(R.id.reviewsRecyclerView);
+        reviewsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+//        TableLayout tl = (TableLayout) findViewById(R.id.teacherTable);
+
+        Log.d(TAG,"Teacher Review Loaded");
 
         db.collection("reviews")
                 .whereEqualTo("teacherId", getIntent().getStringExtra("teacherUserID"))
@@ -55,48 +71,45 @@ public class TeacherView extends AppCompatActivity  {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
+                            Log.d(TAG,"Teacher On Success");
                             double total = 0.00;
-                            Calendar date = Calendar.getInstance(TimeZone.getTimeZone("UTC-4"));
+                            NumberFormat formatter = new DecimalFormat("##.###");
+                            Calendar date = Calendar.getInstance();
                             for (QueryDocumentSnapshot document : task.getResult()) {
+
                                 if (document.toObject(Reviews.class).getPublishTime().compareTo(new Timestamp(date.getTime())) <= 0) {
                                     try {
                                         total += Double.parseDouble(document.toObject(Reviews.class).getRating());
                                     } catch (Exception e) {
                                         total += 0;
                                     }
+                                    //create an object of ReviewItem with reviewer,rating and review.
+                                    ReviewItem reviewItem = new ReviewItem(document.toObject(Reviews.class).getReviewer(),
+                                            document.toObject(Reviews.class).getRating(),document.toObject(Reviews.class).getReview());
+                                    Log.d(TAG,"***************  Reviewer : "+reviewItem.getReviewer()+" Rating : "+reviewItem.getRating()+" Review : "+reviewItem.getReview()+"  ****************");
 
-                                    System.out.println(document.getId() + " => " + document.getData());
-                                    TableRow tr = new TableRow(getApplicationContext());
-                                    LinearLayout lay = new LinearLayout(getApplicationContext());
-                                    lay.setOrientation(1);
-                                    TextView b = new TextView(getApplicationContext());
-                                    b.setText(document.toObject(Reviews.class).getReviewer());
-                                    b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
-                                    TextView d = new TextView(getApplicationContext());
-                                    d.setText(document.toObject(Reviews.class).getRating());
-                                    d.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
-                                    lay.addView(b);
-                                    lay.addView(d);
-                                    lay.setPadding(20, 0, 0, 0);
+                                    //add the review to the array list
+                                    reviewItemList.add(reviewItem);
 
-                                    tr.addView(lay);
-                                    TextView c = new TextView(getApplicationContext());
-                                    c.setText(document.toObject(Reviews.class).getReview());
-                                    c.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 1.0f));
-                                    c.setPadding(50, 0, 20, 0);
-                                    tr.addView(c);
-                                    TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
-
-                                    tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-                                    tl.requestLayout();
                                 }
                                 total = total / task.getResult().size();
-                                avgRating = String.valueOf(total);
+                                avgRating = "Rating : "+ formatter.format(total);
                                 TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
                                 ratingLabel.setText(avgRating);
                             }
+
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    adapter = new ReviewItemAdapter(TeacherView.this, reviewItemList);
+                                    reviewsRecyclerView.setAdapter(adapter);
+                                }
+                            });
+
                         } else {
                             System.out.println("Error getting documents: " + task.getException());
+                            Log.d(TAG,"Error getting documents: " + task.getException());
                         }
 
 

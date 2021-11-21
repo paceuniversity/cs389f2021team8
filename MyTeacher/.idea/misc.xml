@@ -3,11 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/liuyi/Desktop/MyTeacher/app/src/main/res/drawable-anydpi/ic_new_review.xml" value="0.125" />
-        <entry key="..\:/Users/liuyi/Desktop/MyTeacher/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.125" />
-        <entry key="..\:/Users/liuyi/Desktop/MyTeacher/app/src/main/res/drawable/ic_launcher_background.xml" value="0.125" />
-        <entry key="..\:/Users/liuyi/Desktop/MyTeacher/app/src/main/res/layout/activity_main.xml" value="0.10885416666666667" />
-        <entry key="..\:/Users/liuyi/Desktop/MyTeacher/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.125" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_new_review.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_teacher_view.xml" value="0.33" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/review_item.xml" value="0.18854166666666666" />
       </map>
     </option>
   </component>
