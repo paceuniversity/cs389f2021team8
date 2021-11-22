@@ -34,7 +34,7 @@
         android:fontFamily="sans-serif-black"
         android:paddingRight="30dp"
         android:text="TextView"
-        android:textAlignment="viewEnd"
+        android:textAlignment="center"
         android:textSize="14sp" />
 
     <ScrollView
