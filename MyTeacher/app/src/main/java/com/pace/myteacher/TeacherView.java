@@ -50,7 +50,7 @@ public class TeacherView extends AppCompatActivity  {
         setContentView(R.layout.activity_teacher_view);
         Button name = new Button(getApplicationContext());
         Button btn = (Button) findViewById(R.id.teacherViewName);
-        btn.setText(getIntent().getStringExtra("teacherName"));
+        btn.setText(getIntent().getStringExtra("teacherName") + " (" + getIntent().getStringExtra("district") + ")");
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 

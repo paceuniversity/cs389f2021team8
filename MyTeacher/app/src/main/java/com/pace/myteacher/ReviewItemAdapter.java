@@ -59,6 +59,7 @@ public class ReviewItemAdapter  extends RecyclerView.Adapter<ReviewItemAdapter.R
         private TextView reviewer;
         private TextView rating;
         private TextView review;
+        private TextView district;
 
         public ReviewItemViewHolder(@NonNull View itemView) {
             super(itemView);
