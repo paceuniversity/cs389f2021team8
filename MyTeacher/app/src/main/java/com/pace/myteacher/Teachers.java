@@ -27,6 +27,7 @@ public class Teachers {
     private String teacherUserID;
     private String teacherRating;
     private String teacherEmail;
+    private String district;
 
     private String id;
 
@@ -41,6 +42,14 @@ public class Teachers {
     @PropertyName("teacherName")
     public void setTeacherName(String teacherName) {
         this.teacherName = teacherName;
+    }
+    @PropertyName("district")
+    public String getDistrict() {
+        return district;
+    }
+    @PropertyName("district")
+    public void setDistrict(String district) {
+        this.district = district;
     }
     @PropertyName("teacherUserID")
     public String getTeacherUserID() {

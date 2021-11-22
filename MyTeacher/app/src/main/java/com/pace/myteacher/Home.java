@@ -60,6 +60,7 @@ public class Home extends AppCompatActivity  {
                                 bundle.putString("teacherName", document.toObject(Teachers.class).getTeacherName());
                                 bundle.putString("rating", document.toObject(Teachers.class).getTeacherRating());
                                 bundle.putString("teacherEmail", document.toObject(Teachers.class).getTeacherEmail());
+                                bundle.putString("district", document.toObject(Teachers.class).getDistrict());
 
                                 intentMain.putExtras(bundle);
                                 t = document.toObject(Teachers.class);
