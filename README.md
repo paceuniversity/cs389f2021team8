@@ -33,8 +33,8 @@
 * [Sprint planning](./sprint2planning.md)
 * Scrums [Scrum 11/15/2021](./scrum-11-15-2021.md), [Scrum 11/17/2021](./scrum-11-17-2021.md)
   No Scrum 11/24/2021, [Scrum 11/29/2021](./scrum-11-29-2021.md)
-* Sprint demo - video and apk (or equivalent)
-* Spring retrospective
+* Sprint demo - [Video](https://youtu.be/7w5Q7flwBTI) and [APK](./sprint2.apk)
+* [Sprint retrospective](./Team8-Sprint2-Retro.md)
 
 **Sprint 3** 
 
