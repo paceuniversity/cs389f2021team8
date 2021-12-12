@@ -12,24 +12,39 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="@string/logout_eng"
-        android:fontFamily="serif"/>
+        android:fontFamily="serif"
+        android:text="@string/logout_eng" />
 
     <Button
         android:id="@+id/emailTeacher"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
         android:layout_below="@+id/teacherViewName"
-        android:text="Email Teacher"
-        android:fontFamily="serif"/>
+        android:layout_marginBottom="2dp"
+        android:fontFamily="serif"
+        android:text="Email Teacher" />
+
+    <Button
+        android:id="@+id/reportViewBtn"
+        android:layout_width="401dp"
+        android:layout_height="94dp"
+        android:layout_above="@+id/welcomeString"
+        android:layout_below="@+id/emailTeacher"
+        android:layout_alignStart="@+id/emailTeacher"
+        android:layout_alignEnd="@+id/emailTeacher"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-43dp"
+        android:fontFamily="serif"
+        android:text="Reports" />
 
     <TextView
         android:id="@+id/welcomeString"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/emailTeacher"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="52dp"
         android:layout_marginBottom="15dp"
         android:fontFamily="sans-serif-black"
         android:paddingRight="30dp"
@@ -39,9 +54,10 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="392dp"
+        android:layout_height="537dp"
         android:layout_below="@+id/welcomeString"
+        android:layout_marginTop="-3dp"
         android:scrollbars="none">
 
         <RelativeLayout
@@ -50,47 +66,48 @@
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/titleItem"
-                android:weightSum="6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:weightSum="6">
 
                 <TextView
                     android:id="@+id/itemReviewerT"
-                    android:text="Reviewer"
-                    android:textStyle="bold"
-                    android:layout_weight="2"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Reviewer"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/itemRatingT"
-                    android:text="Rating"
-                    android:textStyle="bold"
-                    android:layout_weight="2"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Rating"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/itemReviewT"
-                    android:text="Review"
-                    android:textStyle="bold"
-                    android:layout_weight="2"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Review"
+                    android:textStyle="bold" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/reviewsRecyclerView"
-                android:layout_below="@+id/titleItem"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="195dp"
+                android:layout_below="@+id/titleItem">
 
 
             </androidx.recyclerview.widget.RecyclerView>
 
         </RelativeLayout>
-
 
 
     </ScrollView>
@@ -99,10 +116,10 @@
         android:id="@+id/newReviewBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|right"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_new_review"/>
+        android:src="@drawable/ic_new_review" />
 </RelativeLayout>

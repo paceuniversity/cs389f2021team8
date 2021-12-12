@@ -55,10 +55,22 @@ public class TeacherView extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         setContentView(R.layout.activity_teacher_view);
+        Button reportBtn = (Button) findViewById(R.id.reportViewBtn);
+        Bundle bs = new Bundle();
+
+        bs.putString("teacherId", getIntent().getStringExtra("teacherUserID"));
+
         Button name = new Button(getApplicationContext());
         Button btn = (Button) findViewById(R.id.teacherViewName);
         btn.setText(getIntent().getStringExtra("teacherName") + " (" + getIntent().getStringExtra("district") + ")");
-
+        Intent intentReport = new Intent(TeacherView.this, AdminView.class);
+        intentReport.putExtras(bs);
+        reportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intentReport);
+            }
+        });
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         super.onCreate(savedInstanceState);
@@ -90,7 +102,8 @@ public class TeacherView extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "Teacher On Success");
                                     double total = 0.00;
-                                    NumberFormat formatter = new DecimalFormat("##.###");
+                                    int numOfRev = 0;
+                                    NumberFormat formatter = new DecimalFormat("####.###");
                                     Calendar date = Calendar.getInstance();
                                     for (QueryDocumentSnapshot document : task.getResult()) {
 
@@ -100,6 +113,7 @@ public class TeacherView extends AppCompatActivity {
                                             } catch (Exception e) {
                                                 total += 0;
                                             }
+                                            numOfRev++;
                                             //create an object of ReviewItem with reviewer,rating and review.
                                             ReviewItem reviewItem = new ReviewItem(document.toObject(Reviews.class).getReviewer(),
                                                     document.toObject(Reviews.class).getRating(), document.toObject(Reviews.class).getReview());
@@ -109,7 +123,7 @@ public class TeacherView extends AppCompatActivity {
                                             reviewItemList.add(reviewItem);
 
                                         }
-                                        total = total / task.getResult().size();
+                                        total = total / numOfRev;
                                         avgRating = "Rating : " + formatter.format(total);
                                         TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
                                         ratingLabel.setText(avgRating);
