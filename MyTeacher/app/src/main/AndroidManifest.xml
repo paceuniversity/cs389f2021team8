@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyTeacher">
         <activity
+            android:name=".AdminView"
+            android:exported="false" />
+        <activity
             android:name=".NewReview"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
         </activity>
         <activity
             android:name=".Home"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
