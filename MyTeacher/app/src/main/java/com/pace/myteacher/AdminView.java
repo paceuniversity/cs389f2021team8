@@ -66,7 +66,7 @@ public class AdminView extends AppCompatActivity {
                             String formatted = format.format(ageOfReviews);
                             Date avgDate = new Date(formatted);
                             int avgDays = avgDate.getDate();
-                            time.setText("The Average Length is " + avgDays + ".");
+                            time.setText("The Average Length is " + avgDays + " days.");
 
 
                         } else {

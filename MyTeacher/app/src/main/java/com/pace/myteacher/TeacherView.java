@@ -102,14 +102,14 @@ public class TeacherView extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     Log.d(TAG, "Teacher On Success");
                                     double total = 0.00;
-                                    int numOfRev = 0;
+                                    double numOfRev = 0.0;
                                     NumberFormat formatter = new DecimalFormat("####.###");
                                     Calendar date = Calendar.getInstance();
                                     for (QueryDocumentSnapshot document : task.getResult()) {
 
-                                        if (document.toObject(Reviews.class).getPublishTime().compareTo(new Timestamp(date.getTime())) <= 0) {
+                                        //if (document.toObject(Reviews.class).getPublishTime().compareTo(new Timestamp(date.getTime())) <= 0) {
                                             try {
-                                                total += Double.parseDouble(document.toObject(Reviews.class).getRating());
+                                                total = total + Double.parseDouble(document.toObject(Reviews.class).getRating());
                                             } catch (Exception e) {
                                                 total += 0;
                                             }
@@ -122,13 +122,17 @@ public class TeacherView extends AppCompatActivity {
                                             //add the review to the array list
                                             reviewItemList.add(reviewItem);
 
-                                        }
-                                        total = total / numOfRev;
-                                        avgRating = "Rating : " + formatter.format(total);
-                                        TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
-                                        ratingLabel.setText(avgRating);
+                                        //}
+
+
                                     }
 
+                                    total = total / numOfRev;
+                                    System.out.println("TOTAL: " + total);
+                                    System.out.println("TOTAL: " + total);
+                                    avgRating = "Rating : " + formatter.format(total);
+                                    TextView ratingLabel = (TextView) findViewById(R.id.welcomeString);
+                                    ratingLabel.setText(avgRating);
                                     runOnUiThread(new Runnable() {
                                         @Override
                                         public void run() {
