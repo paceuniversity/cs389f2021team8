@@ -37,6 +37,7 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 import java.util.Timer;
@@ -106,8 +107,10 @@ public class TeacherView extends AppCompatActivity {
                                     NumberFormat formatter = new DecimalFormat("####.###");
                                     Calendar date = Calendar.getInstance();
                                     for (QueryDocumentSnapshot document : task.getResult()) {
-
-                                        //if (document.toObject(Reviews.class).getPublishTime().compareTo(new Timestamp(date.getTime())) <= 0) {
+                                        Calendar date2WeeksAgo = Calendar.getInstance();
+                                        date2WeeksAgo.add(Calendar.WEEK_OF_YEAR, -2);
+                                        Date calPosted = document.toObject(Reviews.class).getPublishTime().toDate();
+                                        if (calPosted.compareTo(date2WeeksAgo.getTime()) >= 0) {
                                             try {
                                                 total = total + Double.parseDouble(document.toObject(Reviews.class).getRating());
                                             } catch (Exception e) {
@@ -122,7 +125,7 @@ public class TeacherView extends AppCompatActivity {
                                             //add the review to the array list
                                             reviewItemList.add(reviewItem);
 
-                                        //}
+                                        }
 
 
                                     }
