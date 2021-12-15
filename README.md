@@ -40,7 +40,7 @@
 
 * [Sprint planning](./sprint3planning.md)
 * Scrums [Scrum 12/6/2021](./scrum-12-06-2021.md), [Scrum 12/8/2021](./scrum-12-8-2021.md)
-* Sprint demo - video and [apk](https://drive.google.com/file/d/1tB6CWS0H2kjWpB0VgSP5DrHkc_jZEeD-/view?usp=sharing) (or equivalent)
+* Sprint demo - [video](https://youtu.be/HDXtR4JbRzI) and [apk](https://drive.google.com/file/d/1tB6CWS0H2kjWpB0VgSP5DrHkc_jZEeD-/view?usp=sharing) (or equivalent)
 * [Sprint retrospective](https://docs.google.com/document/d/1LDUOcUmCDDAthD_mMELaaok8IYHL1E9yQEyPHrFrVNw/edit?usp=sharing)
 
 **Final presentation**
