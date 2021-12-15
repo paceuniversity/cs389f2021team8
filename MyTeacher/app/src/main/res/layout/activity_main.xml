@@ -6,15 +6,20 @@
     android:layout_height="match_parent"
     android:columnCount="1"
     android:rowCount="4"
+    android:padding="20dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/teacherViewName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="8dp"
         android:text="@string/logout_eng"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="15dp"
         app:layout_constraintBottom_toTopOf="@+id/welcomeString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,16 +28,13 @@
 
     <TextView
         android:id="@+id/welcomeString"
-        android:layout_width="304dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginStart="50dp"
+        android:gravity="center"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="176dp"
         android:fontFamily="sans-serif-black"
         android:text="TextView"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/teacherViewName" />
 
     <ScrollView
@@ -41,7 +43,7 @@
         android:layout_height="580dp"
         android:layout_weight="1"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/welcomeString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +72,7 @@
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
         </TableLayout>
 
     </ScrollView>

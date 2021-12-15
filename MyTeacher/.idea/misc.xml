@@ -3,11 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_teacher_view.xml" value="0.17015493038936444" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_new_review.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/activity_teacher_view.xml" value="0.33" />
+        <entry key="..\:/Users/ADBONUM/AndroidStudioProjects/MyTeacher/app/src/main/res/layout/review_item.xml" value="0.18854166666666666" />
+        <entry key="app/src/main/res/layout/activity_admin_view.xml" value="0.14399204690217499" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2795819284606226" />
+        <entry key="app/src/main/res/layout/activity_teacher_view.xml" value="0.24911208829127035" />
       </map>
     </option>
   </component>
+
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -26,6 +26,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Home extends AppCompatActivity  {
     static Teachers t;
     @Override
@@ -39,48 +42,57 @@ public class Home extends AppCompatActivity  {
         welcomeStr.setText("Welcome, " + user.getEmail());
 
         TableLayout tl = (TableLayout) findViewById(R.id.teacherTable);
+        Timer myTimer = new Timer ();
+        TimerTask myTask = new TimerTask() {
+            @Override
+            public void run () {
+                db.collection("teachers")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        System.out.println(document.getId() + " => " + document.getData());
+                                        TableRow tr = new TableRow(getApplicationContext());
 
-        db.collection("teachers")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                System.out.println(document.getId() + " => " + document.getData());
-                                TableRow tr = new TableRow(getApplicationContext());
+                                        Button b = new Button(getApplicationContext());
+                                        b.setText(document.toObject(Teachers.class).getTeacherName());
+                                        b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1.0f));
+                                        Intent intentMain = new Intent(Home.this, TeacherView.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("id",document.toObject(Teachers.class).getId() );
+                                        bundle.putString("teacherUserID", document.toObject(Teachers.class).getTeacherUserID());
+                                        bundle.putString("teacherName", document.toObject(Teachers.class).getTeacherName());
+                                        bundle.putString("rating", document.toObject(Teachers.class).getTeacherRating());
+                                        bundle.putString("teacherEmail", document.toObject(Teachers.class).getTeacherEmail());
+                                        bundle.putString("district", document.toObject(Teachers.class).getDistrict());
 
-                                Button b = new Button(getApplicationContext());
-                                b.setText(document.toObject(Teachers.class).getTeacherName());
-                                b.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT,1.0f));
-                                Intent intentMain = new Intent(Home.this, TeacherView.class);
-                                Bundle bundle = new Bundle();
-                                bundle.putString("id",document.toObject(Teachers.class).getId() );
-                                bundle.putString("teacherUserID", document.toObject(Teachers.class).getTeacherUserID());
-                                bundle.putString("teacherName", document.toObject(Teachers.class).getTeacherName());
-                                bundle.putString("rating", document.toObject(Teachers.class).getTeacherRating());
-                                bundle.putString("teacherEmail", document.toObject(Teachers.class).getTeacherEmail());
+                                        intentMain.putExtras(bundle);
+                                        t = document.toObject(Teachers.class);
+                                        b.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                                startActivity(intentMain);
+                                            }
+                                        });
+                                        tr.addView(b);
 
-                                intentMain.putExtras(bundle);
-                                t = document.toObject(Teachers.class);
-                                b.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-                                        startActivity(intentMain);
+                                        TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
+
+                                        tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
+                                        tl.requestLayout();
                                     }
-                                });
-                                tr.addView(b);
-
-                                TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT, 1.0f);
-
-                                tl.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.MATCH_PARENT));
-                                tl.requestLayout();
+                                } else {
+                                    System.out.println("Error getting documents: "+ task.getException());
+                                }
                             }
-                        } else {
-                           System.out.println("Error getting documents: "+ task.getException());
-                        }
-                    }
-                });
+                        });
+
+            }
+        };
+
+        myTimer.scheduleAtFixedRate(myTask , 0l, 5 * (60*1000)); // Runs every 5 mins
 
 
             }
